@@ -6,7 +6,19 @@
   html {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-bottom: 96px;
   }
+}
+
+/* Área segura inferior para dispositivos móviles (iPhone con barra de inicio) */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+}
+
+.bottom-safe {
+  bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Ocultar barra o badge publicitaria inyectada de Netlify */

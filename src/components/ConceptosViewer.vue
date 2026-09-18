@@ -7,27 +7,142 @@
           NIF A-1 • Marco Teórico Conceptual
         </span>
       </div>
-      <h2 class="text-lg sm:text-2xl font-black text-slate-900 dark:text-white">Contabilidad vs Contaduría</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 text-xs leading-relaxed">
-        <div class="p-3.5 sm:p-4 bg-rose-50/50 dark:bg-slate-950/70 border border-rose-100 dark:border-slate-800 rounded-2xl space-y-1.5">
-          <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-xs sm:text-sm">
-            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
-            <span>Contabilidad:</span>
+      <div>
+        <h1 class="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+          Conceptos y Reglas Contables Clave
+        </h1>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          Reglas del IVA, Esquemas de Mayor (Cuentas "T") y Cuentas Complementarias.
+        </p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN CLAVE: LA REGLA DEL IVA (EL CORAZÓN DE ESTA PRÁCTICA) -->
+    <div id="regla-iva" class="bg-white dark:bg-slate-900 border-2 border-rose-300 dark:border-rose-900/60 rounded-2xl sm:rounded-3xl p-5 sm:p-7 text-slate-800 dark:text-slate-100 shadow-sm space-y-5">
+      <div class="space-y-1.5 border-b border-rose-100 dark:border-slate-800 pb-3.5">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-rose-100 dark:bg-rose-950/80 border border-rose-200 dark:border-rose-800 rounded-full text-[10px] font-mono font-black uppercase text-rose-600 dark:text-rose-300">
+          <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+          <span>El Corazón de esta Práctica</span>
+        </div>
+        <h2 class="text-base sm:text-xl font-black text-slate-900 dark:text-white tracking-tight">
+          La Regla del IVA que Hay que Entender
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          Contabilidad e IVA corren en <strong>tiempos distintos</strong> (Devengación vs Flujo de Efectivo), y por eso se usan <strong>CUATRO cuentas de IVA</strong> en lugar de dos:
+        </p>
+      </div>
+
+      <!-- Grid de las 4 Cuentas de IVA (Ventas vs Compras) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        
+        <!-- Rama 1: Ventas (IVA Trasladado) -->
+        <div class="p-4 bg-amber-50/40 dark:bg-slate-950/70 border border-amber-200/80 dark:border-amber-900/60 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-amber-800 dark:text-amber-300 text-xs sm:text-sm uppercase flex items-center gap-1.5">
+              <span>🛒</span>
+              <span>Ciclo de Ventas (Clientes)</span>
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-bold rounded-md">
+              Pasivo • Acreedor
+            </span>
           </div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-[11px] sm:text-xs">
-            Técnica que compila los registros sistemáticos de las transacciones y eventos económicos que afectan a una entidad, generando la información incorporada en los estados financieros.
-          </p>
+
+          <!-- Paso 1: Venta a Crédito -->
+          <div class="p-3 bg-white dark:bg-slate-900 border border-amber-100 dark:border-amber-900/50 rounded-xl space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-mono font-black text-amber-600 dark:text-amber-400">2103 IVA por Trasladar</span>
+              <span class="text-[10px] bg-amber-50 dark:bg-slate-800 px-1.5 py-0.5 rounded font-bold text-amber-700">A Crédito</span>
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong>Cuando VENDES a crédito:</strong> El ingreso ya se ganó en contabilidad, pero el IVA aún no se causa ante el fisco. Se guarda en esta cuenta pendiente de cobro.
+            </p>
+          </div>
+
+          <!-- Paso 2: Cobro Efectivo -->
+          <div class="p-3 bg-white dark:bg-slate-900 border border-amber-100 dark:border-amber-900/50 rounded-xl space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-mono font-black text-emerald-600 dark:text-emerald-400">2102 IVA Trasladado Cobrado</span>
+              <span class="text-[10px] bg-emerald-50 dark:bg-slate-800 px-1.5 py-0.5 rounded font-bold text-emerald-700">Flujo Real</span>
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong>Cuando el cliente PAGA:</strong> Ese IVA se traspasa de la 2103 a la 2102. ¡Ahí ya cuenta legalmente para la declaración mensual ante el SAT!
+            </p>
+          </div>
         </div>
 
-        <div class="p-3.5 sm:p-4 bg-rose-50/50 dark:bg-slate-950/70 border border-rose-100 dark:border-slate-800 rounded-2xl space-y-1.5">
-          <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-xs sm:text-sm">
-            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            <span>Contaduría:</span>
+        <!-- Rama 2: Compras y Gastos (IVA Acreditable) -->
+        <div class="p-4 bg-blue-50/40 dark:bg-slate-950/70 border border-blue-200/80 dark:border-blue-900/60 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-blue-800 dark:text-blue-300 text-xs sm:text-sm uppercase flex items-center gap-1.5">
+              <span>📦</span>
+              <span>Ciclo de Compras (Proveedores)</span>
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 font-bold rounded-md">
+              Activo • Deudor
+            </span>
           </div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-[11px] sm:text-xs">
-            Profesión ejercida por el Contador Público, vinculada a las ciencias económico-administrativas en áreas como auditoría, contraloría, fiscal/impuestos, costos, finanzas y nómina.
-          </p>
+
+          <!-- Paso 1: Compra a Crédito -->
+          <div class="p-3 bg-white dark:bg-slate-900 border border-blue-100 dark:border-blue-900/50 rounded-xl space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-mono font-black text-blue-600 dark:text-blue-400">1106 IVA por Acreditar</span>
+              <span class="text-[10px] bg-blue-50 dark:bg-slate-800 px-1.5 py-0.5 rounded font-bold text-blue-700">A Crédito</span>
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong>Cuando COMPRAS a crédito:</strong> El gasto o activo ya existe en libros, pero el IVA no se puede acreditar aún porque no ha salido el dinero. Se guarda en 1106.
+            </p>
+          </div>
+
+          <!-- Paso 2: Pago a Proveedor -->
+          <div class="p-3 bg-white dark:bg-slate-900 border border-blue-100 dark:border-blue-900/50 rounded-xl space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-mono font-black text-indigo-600 dark:text-indigo-400">1105 IVA Acreditable Pagado</span>
+              <span class="text-[10px] bg-indigo-50 dark:bg-slate-800 px-1.5 py-0.5 rounded font-bold text-indigo-700">Flujo Real</span>
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong>Cuando le PAGAS al proveedor:</strong> Ese IVA se traspasa de la 1106 a la 1105. ¡A partir de este momento ya se puede restar y acreditar formalmente!
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- El Cierre de Mes (Mecánica de Liquidación) -->
+      <div class="p-4 sm:p-5 bg-rose-50/50 dark:bg-slate-950 border border-rose-200 dark:border-slate-800 rounded-2xl space-y-3">
+        <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-xs sm:text-sm">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mecánica al Cierre del Mes: Enfrentamiento de Cuentas de Flujo</span>
+        </div>
+
+        <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+          Al cierre de cada mes se enfrentan <strong class="text-rose-600 dark:text-rose-400">solo las dos cuentas de flujo real</strong>: 
+          <span class="font-mono font-bold bg-white dark:bg-slate-900 px-2 py-0.5 rounded border">2102 (Cobrado)</span> 
+          menos 
+          <span class="font-mono font-bold bg-white dark:bg-slate-900 px-2 py-0.5 rounded border">1105 (Pagado)</span>:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <!-- IVA por pagar -->
+          <div class="p-3 bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-900/60 rounded-xl space-y-1">
+            <span class="font-black text-rose-600 dark:text-rose-400 block">Si 2102 > 1105 (Sobra IVA Cobrado):</span>
+            <p class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+              Resulta <strong>IVA POR PAGAR</strong>. La empresa tiene la obligación de liquidar esa diferencia a favor del SAT en su declaración mensual.
+            </p>
+          </div>
+
+          <!-- Saldo a favor -->
+          <div class="p-3 bg-white dark:bg-slate-900 border border-emerald-200 dark:border-emerald-900/60 rounded-xl space-y-1">
+            <span class="font-black text-emerald-600 dark:text-emerald-400 block">Si 1105 > 2102 (Sobra IVA Acreditable):</span>
+            <p class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+              Resulta <strong>SALDO A FAVOR (IVA a Favor)</strong>. La empresa tiene derecho a compensarlo en meses futuros o solicitar su devolución.
+            </p>
+          </div>
+        </div>
+
+        <!-- Regla de oro de las cuentas pendientes -->
+        <div class="p-2.5 bg-white/80 dark:bg-slate-900/80 rounded-xl border border-dashed border-rose-200 dark:border-slate-700 text-[11px] text-slate-600 dark:text-slate-300 font-medium flex items-center gap-2">
+          <span class="text-sm">📌</span>
+          <span><strong>Regla Vital:</strong> Las cuentas <strong class="font-mono">2103</strong> y <strong class="font-mono">1106</strong> se quedan vivas en el Balance General, esperando que se efectúe su cobro o su pago correspondiente.</span>
         </div>
       </div>
     </div>

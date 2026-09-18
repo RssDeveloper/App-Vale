@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { supabase } from '../lib/supabase'
+import { supabase, isSupabaseConfigured } from '../lib/supabase'
 
 // Respaldo de datos base extraído de los 5 archivos Excel
 const DEFAULT_SEED_DATA = [
@@ -215,7 +215,7 @@ export const useAccountingStore = defineStore('accounting', () => {
   window.addEventListener('offline', () => { isOnline.value = false })
 
   async function fetchAll() {
-    if (!navigator.onLine) {
+    if (!isSupabaseConfigured || !supabase || !navigator.onLine) {
       if (!documents.value || documents.value.length === 0) {
         documents.value = DEFAULT_SEED_DATA
       }
@@ -265,23 +265,22 @@ export const useAccountingStore = defineStore('accounting', () => {
   }
 
   async function upsertItem(itemData) {
-    if (!navigator.onLine) {
-      // Guardado offline local
-      const targetDoc = documents.value.find(d => d.sections?.some(s => s.id === itemData.section_id))
-      if (targetDoc) {
-        const sec = targetDoc.sections.find(s => s.id === itemData.section_id)
-        if (sec) {
-          if (itemData.id) {
-            const idx = sec.financial_items.findIndex(i => i.id === itemData.id)
-            if (idx !== -1) sec.financial_items[idx] = { ...itemData }
-          } else {
-            sec.financial_items.push({ ...itemData, id: 'local-' + Date.now() })
-          }
-          localStorage.setItem('cached_conta_data', JSON.stringify(documents.value))
+    // Guardado offline local persistente
+    const targetDoc = documents.value.find(d => d.sections?.some(s => s.id === itemData.section_id))
+    if (targetDoc) {
+      const sec = targetDoc.sections.find(s => s.id === itemData.section_id)
+      if (sec) {
+        if (itemData.id) {
+          const idx = sec.financial_items.findIndex(i => i.id === itemData.id)
+          if (idx !== -1) sec.financial_items[idx] = { ...itemData }
+        } else {
+          sec.financial_items.push({ ...itemData, id: 'local-' + Date.now() })
         }
+        localStorage.setItem('cached_conta_data', JSON.stringify(documents.value))
       }
-      return
     }
+
+    if (!isSupabaseConfigured || !supabase || !navigator.onLine) return
 
     try {
       if (itemData.id && !itemData.id.startsWith('local-') && !itemData.id.startsWith('item-')) {
@@ -298,13 +297,6 @@ export const useAccountingStore = defineStore('accounting', () => {
   }
 
   async function deleteItem(id) {
-    if (navigator.onLine && !id.startsWith('local-') && !id.startsWith('item-')) {
-      try {
-        await supabase.from('financial_items').delete().eq('id', id)
-      } catch (e) {
-        console.warn('Error eliminando en Supabase:', e)
-      }
-    }
     // Borrado reactivo en estado local
     documents.value.forEach(doc => {
       doc.sections?.forEach(sec => {
@@ -314,6 +306,16 @@ export const useAccountingStore = defineStore('accounting', () => {
       })
     })
     localStorage.setItem('cached_conta_data', JSON.stringify(documents.value))
+
+    if (!isSupabaseConfigured || !supabase || !navigator.onLine) return
+
+    if (!id.startsWith('local-') && !id.startsWith('item-')) {
+      try {
+        await supabase.from('financial_items').delete().eq('id', id)
+      } catch (e) {
+        console.warn('Error eliminando en Supabase:', e)
+      }
+    }
   }
 
   return {
